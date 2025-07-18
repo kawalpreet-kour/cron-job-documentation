@@ -5,6 +5,10 @@
 | Kawalpreet Kour   | 16 July 2025  | v1      | -               | -             |
 
 ---
+## Prerequisites
+
+- A system running Linux (such as Ubuntu).
+- Access to a command line or terminal window
 
 ## Table of Contents
 
@@ -189,6 +193,8 @@ A crontab entry contains **five time fields** followed by the command to run:
     ```bash
     crontab -r
     ```
+  <img width="578" height="110" alt="Screenshot from 2025-07-18 14-41-03" src="https://github.com/user-attachments/assets/ea337a8d-2630-407b-981a-97fb869c81f2" />
+  
     *This command deletes all cron jobs for the current user.*
 
 - **Remove a specific job:**
