@@ -64,9 +64,54 @@ Automating repetitive tasks with cron saves time and reduces errors. Typical use
     sudo systemctl status cron
     ```
     ![Checking cron service status: This screenshot displays the output of 'sudo systemctl status cron', confirming that the cron service is enabled and running.](https://github.com/user-attachments/assets/1e85d38c-5b2e-463c-9632-e827a65a07f5)
+
     *This screenshot shows that the cron service is active and running.*
 
 ---
+# Basic Crontab Syntax Guide
+
+The syntax of a cron job line in a crontab file uses the following format:
+
+```
+MIN HOUR DOM MON DOW CMD
+```
+
+- **MIN** – Minute (0–59)
+- **HOUR** – Hour (0–23)
+- **DOM** – Day of month (1–31)
+- **MON** – Month (1–12 or JAN–DEC)
+- **DOW** – Day of week (0–7 or SUN–SAT; both 0 and 7 mean Sunday)
+- **CMD** – Command to execute (absolute path recommended)
+
+Each field is separated by a single space. These five time fields tell Cron when to run the job.
+
+## Example
+
+To run a script on January 1st at 9 AM:
+
+```
+0 9 1 1 * /path/to/your_script.sh
+```
+
+The asterisk (`*`) means "every possible value" for that field.
+
+---
+
+## Cron Job Time Format Table
+
+| Field            | Possible Values                   | Example         | Description                                           |
+|------------------|-----------------------------------|-----------------|-------------------------------------------------------|
+| Minute (MIN)     | 0 – 59                            | `7 * * * *`     | Runs when minute is 7 (e.g., 12:07, 13:07, etc.)      |
+| Hour (HOUR)      | 0 – 23                            | `0 7 * * *`     | Runs at 7:00 AM (19:00 would be `0 19 * * *`)         |
+| Day of Month     | 1 – 31                            | `0 0 7 * *`     | Runs on the 7th of every month at midnight            |
+| Month (MON)      | 1 – 12 or JAN – DEC               | `0 0 0 7 *`     | Runs only in July (month = 7)                         |
+| Day of Week (DOW)| 0 – 7 or SUN – SAT (0,7 = Sunday) | `0 0 * * 7`     | Runs only on Sundays                                  |
+
+---
+
+## Command to Execute
+
+After the schedule, specify the absolute path to the script or command you want Cron to run.
 
 ## Cron Job Syntax and Examples
 
@@ -105,6 +150,7 @@ A crontab entry contains **five time fields** followed by the command to run:
     *If this is your first time, you will be prompted to select a text editor:*
 
     ![Editor selection prompt: This screenshot displays the selection of a text editor for editing the crontab file. 'Nano' is recommended for beginners.](https://github.com/user-attachments/assets/0ff9c287-a0a9-49a7-a5ed-c0bb7e66c473)
+
     *This screenshot shows the editor selection menu. Beginners can select 'nano' for ease of use.*
 
 2. **The editor will open the default crontab for your user:**
@@ -136,7 +182,8 @@ A crontab entry contains **five time fields** followed by the command to run:
     ![This screenshot shows the crontab open for editing. You can add, remove, or modify jobs here.](https://github.com/user-attachments/assets/336faba4-2014-4de0-a6b8-ff24af493c60)
     ![Editing jobs in crontab.](https://github.com/user-attachments/assets/5c6a2f02-1383-479c-9ca0-aa3f27e15143)
     ![Saving or removing jobs in crontab editor.](https://github.com/user-attachments/assets/e98f1c08-2066-4be3-8113-5c9c5e166756)
-    *These screenshots show the process of editing, saving changes, or deleting jobs in the crontab file.*
+    
+*These screenshots show the process of editing, saving changes, or deleting jobs in the crontab file.*
 
 - **Remove all jobs:**
     ```bash
