@@ -28,7 +28,7 @@
 
 ## Introduction
 
-Cron is a time-based job scheduler in Unix-like systems (including Ubuntu). It enables users to automate commands or scripts at specific times and intervals (daily, weekly, on reboot, etc.) with no manual intervention.
+Cron is a time-based job scheduler in linux/Debian based systems . It enables users to automate commands or scripts at specific times and intervals (daily, weekly, on reboot, etc.) with no manual intervention.
 
 ---
 
